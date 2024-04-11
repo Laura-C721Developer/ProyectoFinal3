@@ -11,7 +11,7 @@ echo password_hash($passwordform, PASSWORD_DEFAULT).'<br>';
 $passwordbd = password_hash($passwordform, PASSWORD_DEFAULT);
 
 
-if (password_verify("123456789", $passwordbd)) {
+if (password_verify("12345678", $passwordbd)) {
     echo "Password correcto";
 }
 else {
