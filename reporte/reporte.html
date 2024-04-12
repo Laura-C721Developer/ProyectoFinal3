@@ -1,0 +1,175 @@
+<html lang="es"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Pruebas Automatizadas</title>
+    <style>
+      body { font-family: Arial, sans-serif; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+      th { background-color: #f2f2f2; }
+      .passed { background-color: #d4edda; }
+      .failed { background-color: #f8d7da; }
+    </style>
+    </head>
+
+
+    <body>
+
+        <h1>Reporte de Pruebas Automatizadas</h1>
+        <table>
+          <tbody><tr>
+            <th>ID de Prueba</th>
+            <th>Nombre de la Prueba</th>
+            <th>Criterios</th>
+            <th>Estado</th>
+            <th>Detalles</th>
+          </tr>
+          <!-- Aquí comienzan los resultados de las pruebas -->
+          <tr>
+            <td>PA - 29</td>
+            <td>Añadir un Nuevo Paciente</td>
+            <td><p>Como administrador,<br>
+              Quiero añadir un nuevo paciente al sistema, <br>
+              Para mantener actualizada la base de datos de pacientes.<br><br>
+              
+             <b> Criterios de Aceptación:</b>   <br>
+              Debe haber un formulario para ingresar la información del nuevo paciente.
+              El nuevo paciente debe aparecer en la tabla de pacientes tras ser añadido.<br>
+              
+             <b> Criterios de Rechazo:</b><br>
+              El formulario para añadir pacientes no valida correctamente la información ingresada.
+              El nuevo paciente no aparece en la tabla de pacientes después de ser añadido.</p></td> 
+              <td class="passed">Pasó en la prueba automatizada</td>
+              <td>Todos los casos de prueba pasaron correctamente.
+             <img src="C:\xampp\htdocs\www.sis_biblioteca.com\public\images\imagen1.png" alt="En ejecucion" width="500" height="300"></td>       
+            </tr>
+
+            <tr>
+                <td>PA-28</td>
+                <td>Agendar una Nueva Cita</td>
+            
+            
+                <td><p>Como administrador,<br>
+                  Quiero programar una nueva cita, <br>
+                  Para organizar mi calendario de trabajo.<br><br>
+                  
+              <b> Criterios de Aceptación:</b>   <br>
+              Debe haber un formulario sencillo para ingresar los detalles de la nueva cita.
+              La cita debe aparecer en la tabla de citas una vez confirmada.<br>
+                  
+                 <b> Criterios de Rechazo:</b><br>
+                 El formulario de agendamiento es complicado o confuso para el usuario.
+                 La cita agendada no se refleja en la tabla de citas.</p></td>
+                 <td class="passed">Pasó en la prueba automatizada</td>
+                <td>Todos los casos de prueba pasaron correctamente.
+                <img src="C:\xampp\htdocs\www.sis_biblioteca.com\public\images\imagen2.png" alt="Descripción de la imagen" width="500" height="300"></td>
+            </tr>
+
+            <tr>
+                <td>PA - 27</td>
+                <td>Visualización de la Tabla de Pacientes</td>
+                <td><p>Como administrador,<br>
+                  Quiero ver una tabla con la lista de pacientes,, <br>
+                  Para gestionar la información de los pacientes eficientemente.<br><br>
+                  
+              <b> Criterios de Aceptación:</b>   <br>
+              La tabla debe mostrar el nombre, apellido, número de identificación y contacto del paciente.
+              Debe haber una opción para buscar o filtrar pacientes en la tabla.<br>
+                  
+                 <b> Criterios de Rechazo:</b><br>
+                 La tabla no incluye opciones para buscar o filtrar pacientes.
+                 La información del paciente no se muestra de manera clara y legible.</p></td>
+                <td class="passed">Pasó en la prueba automatizada</td>
+                <td>Todos los casos de prueba pasaron correctamente.
+                  <img src="C:\xampp\htdocs\www.sis_biblioteca.com\public\images\imagen3.png" alt="Descripción de la imagen" width="500" height="300"></td>
+            </tr>
+            <tr>
+                <td>PA-26</td>
+                <td>Visualización de la Tabla de Citas</td>
+                <td><p>Como administrador,<br>
+                  Quiero ver una tabla con la lista de citas, <br>
+                  Para tener una visión general de mis próximas citas.<br><br>
+                  
+              <b> Criterios de Aceptación:</b>   <br>
+              La tabla debe mostrar la fecha, hora, nombre del paciente y tipo de cita.
+              Debe ser posible ordenar la tabla por cualquiera de los campos mencionados..<br>
+                  
+                 <b> Criterios de Rechazo:</b><br>
+                 La tabla no muestra todos los campos requeridos (fecha, hora, nombre del paciente, tipo de cita).
+                 La tabla no permite la ordenación por los campos mencionados.</p></td>
+                <td class="passed">Pasó en la prueba automatizada</td>
+                <td>Todos los casos de prueba pasaron correctamente.
+                <img src="C:\xampp\htdocs\www.sis_biblioteca.com\public\images\imagen4.png" "="" alt="Descripción de la imagen" width="500" height="300"></td>
+            
+              </tr>
+              <tr>
+                <td>PA - 39</td>
+                <td>Inicio de Sesión Seguro</td>
+            
+                <td><p>Como administrador,<br>
+                  Quiero ingresar de forma sencilla, <br>
+                  Para eficientizar el trabajo.<br><br>
+                  
+              <b> Criterios de Aceptación:</b>   <br>
+              El usuario debe poder acceder al formulario de inicio de sesión desde la página principal.
+              El sistema debe encriptar la contraseña antes de enviarla para su verificación.<br>
+                  
+                 <b> Criterios de Rechazo:</b><br>
+                 El formulario de inicio de sesión es difícil de encontrar o no carga correctamente.
+                 No hay opción para mostrar/ocultar la contraseña, lo que puede comprometer la seguridad.</p></td>
+            
+                <td class="passed">Pasó en la prueba automatizada</td>
+            
+                <td>Todos los casos de prueba pasaron correctamente.
+                  <img src="C:\xampp\htdocs\www.sis_biblioteca.com\public\images\imagen5.png" "="" alt="Descripción de la imagen" width="500" height="300"></td>
+              </tr>
+              
+              <tr>
+                <td>PA - 39</td>
+                <td>Inicio de Sesión Seguro, Verificacion de mensaje de error cuando las credenciales sean incorrectas</td>
+            
+                <td><p>Como administrador,<br>
+                  Quiero ingresar de forma sencilla, <br>
+                  Para eficientizar el trabajo.<br><br>
+                  
+                <b> Criterios de Aceptación #3:</b>   <br>
+                El sistema debe validar las credenciales y permitir el acceso solo si son correctas.
+                Si las credenciales son incorrectas, el sistema debe mostrar un mensaje de error claro<br>
+                  
+                 <b> Criterios de Rechazo #3:</b><br>
+                 El sistema permite el acceso con credenciales incorrectas.
+                 Los mensajes de error son genéricos y no ayudan al usuario a entender el problema.</p></td>
+            
+                <td class="passed">Pasó en la prueba automatizada</td>
+                <td>Todos los casos de prueba pasaron correctamente.
+                  <img src="C:\xampp\htdocs\www.sis_biblioteca.com\public\images\imagen6.png" "="" alt="Descripción de la imagen" width="500" height="300"></td>
+            
+              </tr>
+
+              <tr>
+                <td>PA - 30</td>
+                <td>Eliminar a un paciente</td>
+            
+                <td><p>Como administrador,<br>
+                  Quiero eliminar un paciente de la base de datos <br>
+                  Para mantener la información actual y relevante.<br><br>
+                  
+                <b> Criterios de Aceptación:</b>   <br>
+                Debe haber una opción para eliminar un paciente de la tabla de pacientes.
+                El sistema debe confirmar antes de eliminar permanentemente la información del paciente.<br>
+                  
+                 <b> Criterios de Rechazo:</b><br>
+                 No hay una confirmación clara antes de eliminar un paciente.
+                 La información del paciente eliminado sigue apareciendo en la base de datos.</p></td>
+            
+                <td class="failed">Falló en la prueba Automatizada</td>
+                <td>Se navega hacia todos los formularios correctamente, pero no se realiza la accion de eliminar el paciente. Todos los casos de prueba pasaron correctamente.
+                <img src="C:\xampp\htdocs\www.sis_biblioteca.com\public\images\imagen7.png" "="" alt="Descripción de la imagen" width="500" height="300">            
+                </td>
+              </tr>
+          </tbody>
+        </table>
+    </body>
+</html>
+
+            
