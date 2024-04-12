@@ -1,4 +1,4 @@
-# Historia de Usuario: Eliminar un Paciente
+# Historia de Usuario: Eliminar un Paciente PA - 30
 """
 Como administrador,
 Quiero eliminar un paciente de la base de datos,
