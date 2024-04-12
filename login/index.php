@@ -45,14 +45,18 @@ include ('../app/config/conexion.php');
                     </div>
                 </div>
                 <label for="">Contraseña</label>
+ 
+
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" name="password" placeholder="Password">
-                    <div class="input-group-append">
-                        <div class="input-group-text">
-                            <span class="fas fa-lock"></span>
-                        </div>
+                        <input type="password" class="form-control" name="password" placeholder="Password" id="password">
+                     <div class="input-group-append">
+                         <button type="button" class="input-group-text" id="toggle-password" onclick="togglePasswordVisibility()">
+                              <span class="fas fa-eye" id="togglePasswordIcon"></span>
+                        </button>
                     </div>
                 </div>
+
+
                 <div class="form-group">
                     <a href="" class="btn btn-secondary btn-block">Cancelacion</a>
                     <button type="submit" class="btn btn-warning btn-block">Ingreso</button>
@@ -111,7 +115,21 @@ include ('../app/config/conexion.php');
     <!-- /.card -->
 </div>
 <!-- /.login-box -->
-
+<script >
+function togglePasswordVisibility() {
+    var passwordInput = document.getElementById('password');
+    var togglePasswordIcon = document.getElementById('togglePasswordIcon');
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        togglePasswordIcon.classList.remove('fa-eye');
+        togglePasswordIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        togglePasswordIcon.classList.remove('fa-eye-slash');
+        togglePasswordIcon.classList.add('fa-eye');
+    }
+}
+</script>
 <!-- jQuery -->
 <script src="<?php echo $URL;?>/public/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->

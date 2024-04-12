@@ -115,7 +115,7 @@ include('../../layout/admin/datos_sesion_user.php');
                             </div>
                             <div class="col-md-4">
                                <center>
-                                   <button type="submit" onclick="return confirm('Asegurece de llenar la información correcta');" class="btn btn-primary btn-block">Guardar</button>
+                                   <button type="submit" onclick="return confirmar('Asegurece de llenar la información correcta');" class="btn btn-primary btn-block">Guardar</button>
                                </center>
                             <div class="col-md-2"></div>
                         </div>

@@ -34,8 +34,8 @@ include ('../app/config/conexion.php');
 
             <br>
 
-            <div class="alert alert-danger">
-                Error al introducir sus datos
+            <div class="alert alert-danger" id="error-message">
+              Error al introducir sus datos
             </div>
 
             <form action="controller_login.php" method="post">
