@@ -60,14 +60,16 @@ try:
     # Asegúrate de que este botón tenga un ID único en tu HTML para poder localizarlo aquí
     toggle_password_button = driver.find_element(By.ID, 'toggle-password')
     time.sleep(2)  # Espera 2 segundos
-
+    
     # Hacer clic en el botón para mostrar la contraseña
     toggle_password_button.click()
     time.sleep(2)  # Espera 2 segundos
+    driver.save_screenshot('C:/xampp/htdocs/www.sis_biblioteca.com/Screenshotsdepruebas/captura.png')
 
     # Hacer clic nuevamente para ocultar la contraseña
     toggle_password_button.click()
     time.sleep(2)  # Espera 2 segundos
+    driver.save_screenshot('C:/xampp/htdocs/www.sis_biblioteca.com/Screenshotsdepruebas/captura.png')
 
     # Enviar el formulario
     login_button = driver.find_element(By.CSS_SELECTOR, 'button.btn.btn-warning.btn-block')
@@ -79,6 +81,8 @@ try:
         EC.visibility_of_element_located((By.ID, 'error-message'))
     )
     assert 'Error' in error_message.text
+    driver.save_screenshot('C:/xampp/htdocs/www.sis_biblioteca.com/Screenshotsdepruebas/captura.png')
+
     time.sleep(2)  # Espera 2 segundos
 finally:
     # Cerrar el navegador después de las pruebas

@@ -1,16 +1,16 @@
-# Historia de Usuario: Eliminar un Paciente
+#Historia de Usuario: Añadir un Nuevo Paciente PA - 29 
 """
 Como administrador,
-Quiero eliminar un paciente de la base de datos,
-Para mantener la información actual y relevante.
+Quiero añadir un nuevo paciente al sistema,
+Para mantener actualizada la base de datos de pacientes.
 
 Criterios de Aceptación:
-Debe haber una opción para eliminar un paciente de la tabla de pacientes.
-El sistema debe confirmar antes de eliminar permanentemente la información del paciente.
+Debe haber un formulario para ingresar la información del nuevo paciente.
+El nuevo paciente debe aparecer en la tabla de pacientes tras ser añadido.
 
 Criterios de Rechazo:
-No hay una confirmación clara antes de eliminar un paciente.
-La información del paciente eliminado sigue apareciendo en la base de datos.
+El formulario para añadir pacientes no valida correctamente la información ingresada.
+El nuevo paciente no aparece en la tabla de pacientes después de ser añadido.
 """
 
 import time  # Importa el módulo time
@@ -25,7 +25,6 @@ s = Service(executable_path=r"C:\dedgedriver\msedgedriver.exe")
 driver = webdriver.Edge(service=s)
 driver.maximize_window()  # Maximiza la ventana del navegador
 try:
-
     # Navegar a la página principal
     driver.get('http://localhost/www.sis_biblioteca.com/login/index.php')
     time.sleep(2)  # Espera 2 segundos
@@ -49,43 +48,36 @@ try:
     login_button = driver.find_element(By.CSS_SELECTOR, 'button.btn.btn-warning.btn-block')
     login_button.click()
 
+    driver.save_screenshot('C:/xampp/htdocs/www.sis_biblioteca.com/Screenshotsdepruebas/captura.png')
 
-    driver.get('http://localhost/www.sis_biblioteca.com/admin/usuarios/')
+    driver.get('http://localhost/www.sis_biblioteca.com/admin/usuarios/create.php')
     time.sleep(2)  # Espera 2 segundos
+    
+    #Autocompletado 
+   # Autocompletar el formulario
+    # Autocompletar los campos del formulario
+    driver.find_element(By.NAME, 'nombres').send_keys('Martina')
+    driver.find_element(By.NAME, 'apellidos').send_keys('D Oleo')
+    driver.find_element(By.NAME, 'ci').send_keys('46464646')
+    driver.find_element(By.NAME, 'celular').send_keys('8295678376')
+    driver.find_element(By.NAME, 'cargo').send_keys('Tumor')
+    driver.find_element(By.NAME, 'email').send_keys('martinadoleo@hotmail.com')
+    time.sleep(3)  # Espera 2 segundos
+    
+    driver.save_screenshot('C:/xampp/htdocs/www.sis_biblioteca.com/Screenshotsdepruebas/captura.png')
 
- # Esperar a que la tabla de usuarios se cargue
-    WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.TAG_NAME, 'tbody'))
-    )
+    # Encontrar y hacer clic en el botón para registrar el usuario
+    registrar_button = driver.find_element(By.CSS_SELECTOR, 'button.btn.btn-info.btn-block')
+    registrar_button.click()
 
-    # Encuentra la fila que contiene el nombre del usuario
-    user_row = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.XPATH, "//td[contains(text(), 'Daniel')]"))
-    )
-
-    # Encuentra el botón "Borrar" en la misma fila
-    borrar_button = user_row.find_element(By.XPATH, ".//a[contains(@href, 'delete')]")
-    borrar_button.click()
-
-    # Aquí debes agregar el código para interactuar con el formulario de eliminación
-    # Navegar a la página de confirmación de eliminación de usuario
-    driver.get('http://localhost/www.sis_biblioteca.com/admin/usuarios/delete.php?id=30')
-
-    # Esperar a que se cargue el botón de eliminar
-    WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, 'button.btn.btn-info.btn-block'))
-    )
-
-    # Hacer clic en el botón para eliminar el usuario
-    eliminar_button = driver.find_element(By.CSS_SELECTOR, 'button.btn.btn-info.btn-block')
-    eliminar_button.click()
-
-    # Esperar y manejar la alerta de confirmación si es necesario
+    # Esperar y manejar la alerta de confirmación
     WebDriverWait(driver, 10).until(EC.alert_is_present())
     alert = driver.switch_to.alert
-    alert.accept()  # Aceptar la alerta para confirmar la eliminación
+    alert.accept()  # Aceptar la alerta para confirmar el envío
 
-    time.sleep(6)  # Espera 2 segundos
+    time.sleep(4)  # Espera 2 segundos
+    driver.save_screenshot('C:/xampp/htdocs/www.sis_biblioteca.com/Screenshotsdepruebas/captura.png')
+
     driver.get('http://localhost/www.sis_biblioteca.com/admin/usuarios/')
     time.sleep(6)  # Espera 2 segundos
     
@@ -95,7 +87,9 @@ try:
         EC.visibility_of_element_located((By.ID, 'error-message'))
     )
     assert 'Error' in error_message.text
-    time.sleep(6)  # Espera 2 segundos
+    driver.save_screenshot('C:/xampp/htdocs/www.sis_biblioteca.com/Screenshotsdepruebas/captura.png')
+
+    time.sleep(2)  # Espera 2 segundos
 finally:
     # Cerrar el navegador después de las pruebas
     driver.quit()
