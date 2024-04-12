@@ -1,20 +1,18 @@
-# Historia de Usuario: Visualización de la Tabla de Citas PA-26
+# Historia de Usuario: Visualización de la Tabla de Pacientes PA - 27
 
 """
-Como administrador registrado,
-Quiero ver una tabla con todas mis citas programadas,
-Para tener una visión general de mis próximas citas.
+Como administrador,
+Quiero ver una tabla con la lista de pacientes,
+Para gestionar la información de los pacientes eficientemente.
 
 Criterios de Aceptación:
-La tabla debe mostrar la fecha, hora, nombre del paciente y tipo de cita.
-Debe ser posible ordenar la tabla por cualquiera de los campos mencionados.
+La tabla debe mostrar el nombre, apellido, número de identificación y contacto del paciente.
+Debe haber una opción para buscar o filtrar pacientes en la tabla.
 
 Criterios de Rechazo:
-La tabla no muestra todos los campos requeridos (fecha, hora, nombre del paciente, tipo de cita).
-La tabla no permite la ordenación por los campos mencionados.
-
+La tabla no incluye opciones para buscar o filtrar pacientes.
+La información del paciente no se muestra de manera clara y legible.
 """
-
 import time  # Importa el módulo time
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service
@@ -46,20 +44,22 @@ try:
     password_input.send_keys('12345678')
     time.sleep(2)  # Espera 2 segundos
 
-    
+
     # Enviar el formulario
     login_button = driver.find_element(By.CSS_SELECTOR, 'button.btn.btn-warning.btn-block')
     login_button.click()
 
-    driver.get('http://localhost/www.sis_biblioteca.com/admin/libros/index.php')
-    time.sleep(5)  # Espera 5 segundos
-    
+    driver.get('http://localhost/www.sis_biblioteca.com/admin/usuarios/')
+    time.sleep(4)  # Espera 4 segundos
+   
+
     # Verificar mensaje de error para credenciales incorrectas
     # Asegúrate de agregar el ID 'error-message' al mensaje de error en tu HTML si quieres usar esta verificación
     error_message = WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.ID, 'error-message'))
     )
     assert 'Error' in error_message.text
+    driver.save_screenshot('C:/xampp/htdocs/www.sis_biblioteca.com/Screenshotsdepruebas/captura.png')
     time.sleep(2)  # Espera 2 segundos
 finally:
     # Cerrar el navegador después de las pruebas

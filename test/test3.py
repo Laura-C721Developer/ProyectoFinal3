@@ -1,18 +1,17 @@
-#Historia de Usuario: Añadir un Nuevo Paciente PA - 29 
+# Historia de Usuario: Agendar una Nueva Cita PA-28
 """
-Como administrador,
-Quiero añadir un nuevo paciente al sistema,
-Para mantener actualizada la base de datos de pacientes.
+Como administrador registrado,
+Quiero programar una nueva cita,
+Para organizar mi calendario de trabajo.
 
 Criterios de Aceptación:
-Debe haber un formulario para ingresar la información del nuevo paciente.
-El nuevo paciente debe aparecer en la tabla de pacientes tras ser añadido.
+Debe haber un formulario sencillo para ingresar los detalles de la nueva cita.
+La cita debe aparecer en la tabla de citas una vez confirmada.
 
 Criterios de Rechazo:
-El formulario para añadir pacientes no valida correctamente la información ingresada.
-El nuevo paciente no aparece en la tabla de pacientes después de ser añadido.
+El formulario de agendamiento es complicado o confuso para el usuario.
+La cita agendada no se refleja en la tabla de citas.
 """
-
 import time  # Importa el módulo time
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service
@@ -48,39 +47,49 @@ try:
     login_button = driver.find_element(By.CSS_SELECTOR, 'button.btn.btn-warning.btn-block')
     login_button.click()
 
-    driver.get('http://localhost/www.sis_biblioteca.com/admin/usuarios/create.php')
+    driver.get('http://localhost/www.sis_biblioteca.com/admin/libros/create.php')
     time.sleep(2)  # Espera 2 segundos
     
     #Autocompletado 
    # Autocompletar el formulario
-    # Autocompletar los campos del formulario
-    driver.find_element(By.NAME, 'nombres').send_keys('Martina')
-    driver.find_element(By.NAME, 'apellidos').send_keys('D Oleo')
-    driver.find_element(By.NAME, 'ci').send_keys('46464646')
-    driver.find_element(By.NAME, 'celular').send_keys('8295678376')
-    driver.find_element(By.NAME, 'cargo').send_keys('Tumor')
-    driver.find_element(By.NAME, 'email').send_keys('martinadoleo@hotmail.com')
-    time.sleep(3)  # Espera 2 segundos
+    driver.find_element(By.NAME, 'codigo').send_keys('129862')
+    driver.find_element(By.NAME, 'titulo').send_keys('Centro Médico Oncologico')
+    driver.find_element(By.NAME, 'autor').send_keys('12:00 AM')
+    driver.find_element(By.NAME, 'campo').send_keys(' Gabriel Maldonado')
+    driver.find_element(By.NAME, 'editorial').send_keys('Masculino')
+    driver.find_element(By.NAME, 'ano_publicacion').send_keys('12876789')
+    driver.find_element(By.NAME, 'nro_edicion').send_keys('90 kg')
+    driver.find_element(By.NAME, 'paginas').send_keys('30')
+    driver.find_element(By.NAME, 'formato').send_keys('Consulta General')
+    driver.find_element(By.NAME, 'ejemplares').send_keys('846')
+    driver.find_element(By.NAME, 'observaciones').send_keys('SENASA Contributivo')
+    driver.find_element(By.NAME, 'codigo_barra').send_keys('30%')
+    time.sleep(2)  # Espera 2 segundos
     
-    # Encontrar y hacer clic en el botón para registrar el usuario
-    registrar_button = driver.find_element(By.CSS_SELECTOR, 'button.btn.btn-info.btn-block')
-    registrar_button.click()
+    driver.save_screenshot('C:/xampp/htdocs/www.sis_biblioteca.com/Screenshotsdepruebas/captura.png')
+
+    # Encontrar y hacer clic en el botón de guardar
+    guardar_button = driver.find_element(By.CSS_SELECTOR, 'button.btn.btn-primary.btn-block')
+    guardar_button.click()
 
     # Esperar y manejar la alerta de confirmación
     WebDriverWait(driver, 10).until(EC.alert_is_present())
     alert = driver.switch_to.alert
     alert.accept()  # Aceptar la alerta para confirmar el envío
-    time.sleep(4)  # Espera 2 segundos
 
-    driver.get('http://localhost/www.sis_biblioteca.com/admin/usuarios/')
-    time.sleep(6)  # Espera 2 segundos
+    driver.save_screenshot('C:/xampp/htdocs/www.sis_biblioteca.com/Screenshotsdepruebas/captura.png')
+
+    driver.get('http://localhost/www.sis_biblioteca.com/admin/libros/index.php')
+    time.sleep(2)  # Espera 2 segundos
     
+
     # Verificar mensaje de error para credenciales incorrectas
     # Asegúrate de agregar el ID 'error-message' al mensaje de error en tu HTML si quieres usar esta verificación
     error_message = WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.ID, 'error-message'))
     )
     assert 'Error' in error_message.text
+    driver.save_screenshot('C:/xampp/htdocs/www.sis_biblioteca.com/Screenshotsdepruebas/captura.png')
     time.sleep(2)  # Espera 2 segundos
 finally:
     # Cerrar el navegador después de las pruebas

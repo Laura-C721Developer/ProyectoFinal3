@@ -80,6 +80,8 @@ try:
         EC.visibility_of_element_located((By.ID, 'error-message'))
     )
     assert 'Error' in error_message.text
+    driver.save_screenshot('C:/xampp/htdocs/www.sis_biblioteca.com/Screenshotsdepruebas/captura.png')
+
     time.sleep(2)  # Espera 2 segundos
 finally:
     # Cerrar el navegador después de las pruebas
